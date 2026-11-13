@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Line&Lash — салон красоты в Астане</title>
+<meta name="description" content="Line&Lash — салон красоты в Астане: брови, ресницы, ногтевой сервис, перманентный макияж. Ежедневно с 10:00 до 20:00, улица Бейбитшилик, 77.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23241c18'/><text x='32' y='43' font-family='Georgia,serif' font-size='28' fill='%23f6f1ea' text-anchor='middle'>L%26L</text></svg>">
+<style>
+  :root{
+    --ivory:#f6f1ea;
+    --ivory-2:#efe7dd;
+    --paper:#fffdfa;
+    --ink:#241c18;
+    --ink-soft:#5b4c44;
+    --muted:#9a8a80;
+    --line:rgba(36,28,24,.12);
+    --rose:#a9776b;
+    --rose-soft:#e7d3cc;
+    --gold:#b4925f;
+    --radius:20px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--ivory);color:var(--ink);
+    font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+  .serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.06}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+    background:rgba(246,241,234,.86);border-bottom:1px solid transparent;transition:.25s}
+  header.scrolled{border-bottom-color:var(--line);background:rgba(246,241,234,.95)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px}
+  .logo{display:flex;align-items:baseline;gap:2px;font-family:"Cormorant Garamond",Georgia,serif;
+    font-size:30px;letter-spacing:.02em;white-space:nowrap}
+  .logo em{font-style:italic;color:var(--rose);font-size:34px;line-height:0}
+  .menu{display:flex;gap:34px;font-size:13.5px;letter-spacing:.04em;color:var(--ink-soft)}
+  .menu a{position:relative;padding:6px 0}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;
+    background:var(--ink);transition:width .25s}
+  .menu a:hover::after{width:100%}
+  .head-right{display:flex;align-items:center;gap:16px}
+  .head-phone{font-size:13.5px;color:var(--ink-soft);letter-spacing:.02em}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    border-radius:999px;padding:15px 26px;font-size:14px;font-weight:600;letter-spacing:.01em;
+    border:1px solid transparent;cursor:pointer;transition:.22s;white-space:nowrap}
+  .btn-dark{background:var(--ink);color:var(--ivory)}
+  .btn-dark:hover{background:var(--rose);transform:translateY(-1px)}
+  .btn-ghost{border-color:rgba(36,28,24,.28);color:var(--ink);padding:14px 24px}
+  .btn-ghost:hover{background:rgba(36,28,24,.06)}
+  .btn-light{background:var(--ivory);color:var(--ink)}
+  .btn-light:hover{background:var(--rose-soft)}
+  .btn svg{width:17px;height:17px;flex:none}
+
+  /* hero */
+  .hero{padding:54px 0 64px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;right:-160px;top:-120px;width:560px;height:560px;
+    border-radius:50%;background:radial-gradient(circle,rgba(169,119,107,.13),transparent 68%);pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center;position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11.5px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:26px}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--rose)}
+  h1{margin:0 0 24px;font-size:clamp(42px,5.2vw,68px);letter-spacing:-.01em}
+  h1 em{font-style:italic;color:var(--rose)}
+  .lead{font-size:16.5px;color:var(--ink-soft);max-width:470px;margin:0 0 34px;font-weight:400}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;font-size:12.5px;color:var(--ink-soft)}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:rgba(255,253,250,.55)}
+  .hero-visual{position:relative}
+  .arch{position:relative;border-radius:280px 280px 24px 24px;overflow:hidden;
+    aspect-ratio:4/4.75;box-shadow:0 40px 80px -38px rgba(46,30,24,.5)}
+  .arch img{width:100%;height:100%;object-fit:cover;transform:scale(1.02)}
+  .arch::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(36,28,24,.28))}
+  .float-card{position:absolute;left:-36px;bottom:38px;background:var(--paper);
+    border:1px solid rgba(36,28,24,.08);border-radius:16px;padding:18px 22px;
+    box-shadow:0 22px 44px -26px rgba(46,30,24,.4);display:flex;align-items:center;gap:16px}
+  .float-card .score{font-family:"Cormorant Garamond",Georgia,serif;font-size:40px;line-height:1}
+  .float-card .stars{color:var(--gold);letter-spacing:.14em;font-size:13px;margin-bottom:4px}
+  .float-card small{display:block;color:var(--muted);font-size:11.5px;letter-spacing:.02em}
+  .float-card .divider{width:1px;align-self:stretch;background:var(--line)}
+  .float-card .hours{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+  .float-card .hours b{display:block;font-size:13.5px;color:var(--ink);font-weight:600}
+
+  /* facts */
+  .facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,253,250,.45)}
+  .facts-row{display:grid;grid-template-columns:repeat(4,1fr)}
+  .fact{padding:26px 22px;display:flex;gap:14px;align-items:center;border-left:1px solid var(--line)}
+  .fact:first-child{border-left:0;padding-left:0}
+  .fact .num{font-family:"Cormorant Garamond",Georgia,serif;font-size:30px;line-height:1;min-width:54px}
+  .fact .num small{font-size:15px;color:var(--muted)}
+  .fact p{margin:0;font-size:12.5px;line-height:1.45;color:var(--ink-soft)}
+  .fact p b{display:block;font-size:13px;color:var(--ink);font-weight:600}
+
+  /* sections */
+  section{padding:96px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:46px}
+  .sec-head h2{margin:0;font-size:clamp(34px,3.6vw,50px);letter-spacing:-.01em}
+  .sec-head p{margin:0;max-width:390px;color:var(--ink-soft);font-size:14.5px}
+  .label{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);
+    font-weight:700;margin-bottom:16px;display:block}
+
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:var(--paper);border:1px solid rgba(36,28,24,.09);border-radius:var(--radius);
+    padding:30px 28px 26px;transition:.28s;position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-4px);box-shadow:0 26px 50px -34px rgba(46,30,24,.35);
+    border-color:rgba(169,119,107,.35)}
+  .card .ico{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+    background:var(--ivory-2);color:var(--ink);margin-bottom:22px}
+  .card .ico svg{width:22px;height:22px}
+  .card h3{margin:0 0 8px;font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;font-weight:600}
+  .card p{margin:0 0 20px;font-size:13.5px;color:var(--ink-soft);line-height:1.6;min-height:44px}
+  .card .more{font-size:12.5px;font-weight:600;color:var(--rose);display:inline-flex;align-items:center;gap:7px}
+  .card .more svg{width:14px;height:14px;transition:.2s}
+  .card:hover .more svg{transform:translateX(3px)}
+  .price-note{margin-top:22px;font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:9px}
+  .price-note svg{width:15px;height:15px;flex:none;color:var(--gold)}
+
+  /* steps */
+  .steps{background:var(--ink);color:var(--ivory);border-radius:28px;padding:64px;position:relative;overflow:hidden}
+  .steps::after{content:"";position:absolute;right:-120px;bottom:-180px;width:460px;height:460px;
+    border-radius:50%;border:1px solid rgba(246,241,234,.14)}
+  .steps .label{color:var(--rose-soft)}
+  .steps h2{margin:0 0 14px;font-size:clamp(32px,3.4vw,46px)}
+  .steps .sub{max-width:520px;color:rgba(246,241,234,.68);font-size:14.5px;margin:0 0 46px}
+  .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:38px;position:relative;z-index:1}
+  .step{border-top:1px solid rgba(246,241,234,.2);padding-top:22px}
+  .step span{font-family:"Cormorant Garamond",Georgia,serif;font-size:16px;color:var(--rose-soft)}
+  .step h3{margin:16px 0 8px;font-size:17px;font-weight:600;letter-spacing:.01em}
+  .step p{margin:0;font-size:13px;color:rgba(246,241,234,.62);line-height:1.6}
+
+  /* about */
+  .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  .about-photo{border-radius:24px;overflow:hidden;aspect-ratio:1/1.08;box-shadow:0 30px 60px -40px rgba(46,30,24,.45)}
+  .about-photo img{width:100%;height:100%;object-fit:cover}
+  .about h2{margin:0 0 22px;font-size:clamp(34px,3.6vw,48px)}
+  .about p{margin:0 0 16px;color:var(--ink-soft);font-size:14.5px;max-width:520px}
+  .about-list{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:14px}
+  .about-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--ink)}
+  .about-list svg{width:18px;height:18px;flex:none;color:var(--rose);margin-top:2px}
+
+  /* reviews */
+  .review-band{background:var(--ivory-2);border-radius:28px;padding:52px 60px;
+    display:flex;align-items:center;justify-content:space-between;gap:44px;flex-wrap:wrap}
+  .review-left{display:flex;align-items:center;gap:28px}
+  .review-score{font-family:"Cormorant Garamond",Georgia,serif;font-size:74px;line-height:.9}
+  .review-stars{color:var(--gold);letter-spacing:.16em;font-size:17px;margin-bottom:8px}
+  .review-left p{margin:0;font-size:13.5px;color:var(--ink-soft);max-width:330px}
+  .review-left p b{color:var(--ink)}
+  .review-band .btn{flex:none}
+
+  /* contact */
+  .contact{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}
+  .contact-main{background:var(--ink);color:var(--ivory);border-radius:24px;padding:54px}
+  .contact-main h2{margin:0 0 16px;font-size:clamp(32px,3.4vw,46px)}
+  .contact-main p{color:rgba(246,241,234,.66);font-size:14px;margin:0 0 34px;max-width:360px}
+  .contact-main .btn{margin-bottom:26px}
+  .contact-lines{display:grid;gap:12px;font-size:13.5px;color:rgba(246,241,234,.8)}
+  .contact-lines a{display:inline-flex;gap:10px;align-items:center}
+  .contact-lines svg{width:16px;height:16px;color:var(--rose-soft);flex:none}
+  .contact-side{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:54px;
+    display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+  .contact-side .label{margin-bottom:14px}
+  .contact-side h3{margin:0 0 6px;font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:600}
+  .contact-side p{margin:0;color:var(--ink-soft);font-size:14px}
+  .contact-side .map-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;
+    font-weight:600;color:var(--rose);margin-top:10px}
+  .contact-side .map-link svg{width:14px;height:14px}
+  .mini-map{margin-top:22px;border-radius:14px;overflow:hidden;border:1px solid var(--line);
+    background:linear-gradient(135deg,#e9e0d5,#d9cec2);height:140px;position:relative}
+  .mini-map::before{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
+    background-size:34px 34px;transform:rotate(-8deg) scale(1.2)}
+  .mini-map .pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
+    width:34px;height:34px;border-radius:50% 50% 50% 0;background:var(--rose);rotate:-45deg;
+    box-shadow:0 8px 18px rgba(36,28,24,.3)}
+  .mini-map .pin::after{content:"";position:absolute;inset:9px;background:var(--paper);border-radius:50%}
+  .mini-map .cap{position:absolute;left:12px;bottom:10px;background:rgba(255,253,250,.9);
+    border-radius:8px;padding:5px 9px;font-size:10.5px;color:var(--ink-soft)}
+
+  /* footer */
+  footer{padding:46px 0 40px;border-top:1px solid var(--line);margin-top:20px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .foot .logo{font-size:24px}
+  .foot .logo em{font-size:27px}
+  .foot-links{display:flex;gap:26px;font-size:12.5px;color:var(--ink-soft)}
+  .foot-links a:hover{color:var(--ink)}
+  .foot small{color:var(--muted);font-size:11.5px}
+  .demo-note{font-size:10.5px;color:var(--muted);opacity:.75}
+
+  /* floating whatsapp (mobile) */
+  .wa-float{display:none}
+
+  @media (max-width:1020px){
+    .menu{display:none}
+    .head-phone{display:none}
+    .hero-grid{gap:40px}
+    .float-card{left:-16px}
+    .services{grid-template-columns:repeat(2,1fr)}
+    .facts-row{grid-template-columns:repeat(2,1fr)}
+    .fact:nth-child(3){border-left:0;padding-left:0}
+    .fact:nth-child(3),.fact:nth-child(4){border-top:1px solid var(--line)}
+    .about{gap:36px}
+    .steps{padding:48px}
+  }
+  @media (max-width:760px){
+    .wrap{width:calc(100% - 36px)}
+    .nav{height:66px}
+    .head-right .btn{padding:12px 18px;font-size:12.5px}
+    .hero{padding:30px 0 44px}
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    h1{font-size:clamp(40px,11vw,56px)}
+    .lead{font-size:15px}
+    .hero-visual{order:-1;max-width:340px;margin:0 auto;width:100%}
+    .float-card{left:auto;right:-6px;bottom:14px;padding:12px 16px;gap:12px}
+    .float-card .score{font-size:32px}
+    .float-card .hours{display:none}
+    .float-card .divider{display:none}
+    .facts-row{grid-template-columns:1fr 1fr}
+    .fact{padding:18px 14px}
+    .fact .num{font-size:24px;min-width:44px}
+    section{padding:62px 0}
+    .sec-head{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:30px}
+    .services{grid-template-columns:1fr;gap:12px}
+    .card{padding:24px 22px}
+    .card p{min-height:0}
+    .steps{padding:34px 26px;border-radius:22px}
+    .steps-row{grid-template-columns:1fr;gap:24px}
+    .about{grid-template-columns:1fr;gap:26px}
+    .about-photo{aspect-ratio:4/3}
+    .review-band{padding:34px 26px;border-radius:22px;gap:26px}
+    .review-left{gap:18px}
+    .review-score{font-size:58px}
+    .review-band .btn{width:100%}
+    .contact{grid-template-columns:1fr}
+    .contact-main,.contact-side{padding:34px 26px;border-radius:20px}
+    .foot{flex-direction:column;align-items:flex-start;gap:18px}
+    .wa-float{display:flex;position:fixed;right:16px;bottom:16px;z-index:60;
+      width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;
+      align-items:center;justify-content:center;box-shadow:0 14px 30px -8px rgba(37,211,102,.6)}
+    .wa-float svg{width:27px;height:27px}
+    body{padding-bottom:10px}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top">Line<em>&amp;</em>Lash</a>
+    <nav class="menu">
+      <a href="#services">Услуги</a>
+      <a href="#about">О салоне</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="head-right">
+      <span class="head-phone">+7 708 638 53 02</span>
+      <a class="btn btn-dark" href="https://wa.me/77086385302?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20Line%26Lash." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.5-5.9c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.4 0-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3.1a11 11 0 0 0 4.7 5.5c1.5.8 2.6.9 3.4.8.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.1-1.3 0-.1-.2-.2-.4-.3Z"/></svg>
+        Записаться
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Салон красоты · Астана</span>
+        <h1 class="serif">Брови и ресницы,<br>которым идёт <em>ваше&nbsp;лицо</em></h1>
+        <p class="lead">Line&amp;Lash — салон красоты в районе Сарыарка. Коррекция и ламинирование бровей, наращивание ресниц и другие услуги — в спокойной атмосфере и без спешки.</p>
+        <div class="hero-cta">
+          <a class="btn btn-dark" href="https://wa.me/77086385302?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20Line%26Lash." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.5-5.9c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.4 0-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3.1a11 11 0 0 0 4.7 5.5c1.5.8 2.6.9 3.4.8.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.1-1.3 0-.1-.2-.2-.4-.3Z"/></svg>
+            Записаться в WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#services">Смотреть услуги</a>
+        </div>
+        <div class="chips">
+          <span class="chip">Ежедневно 10:00–20:00</span>
+          <span class="chip">улица Бейбитшилик, 77</span>
+          <span class="chip">Оплата картой и QR</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="arch">
+          <img src="assets/salon.jpg" alt="Салон Line&Lash в Астане" fetchpriority="high">
+        </div>
+        <div class="float-card">
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="score">5,0</div>
+            <small>7 отзывов на 2ГИС</small>
+          </div>
+          <div class="divider"></div>
+          <div class="hours"><b>Ежедневно</b>10:00 — 20:00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="facts">
+    <div class="wrap facts-row">
+      <div class="fact"><div class="num">5,0</div><p><b>Рейтинг</b>на 2ГИС</p></div>
+      <div class="fact"><div class="num">7</div><p><b>Отзывов</b>от клиентов</p></div>
+      <div class="fact"><div class="num">10–20</div><p><b>Каждый день</b>без выходных</p></div>
+      <div class="fact"><div class="num">77</div><p><b>Бейбитшилик</b>Сарыарка район</p></div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label">Услуги</span>
+          <h2 class="serif">Всё для вашего<br>образа — в одном месте</h2>
+        </div>
+        <p>Точную стоимость и свободное время подскажем в WhatsApp. Запись без предоплаты и звонков.</p>
+      </div>
+
+      <div class="services">
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 15c2.6-4.2 6-6.2 9-6.2s6.4 2 9 6.2"/><path d="m6 11-1-2M12 8.6V6.4M18 11l1-2"/></svg></div>
+          <h3>Брови</h3>
+          <p>Коррекция и ламинирование бровей — под форму лица и ваш образ.</p>
+          <a class="more" href="https://wa.me/77086385302" target="_blank" rel="noopener">Уточнить стоимость <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 12s3.6-5.6 10-5.6S22 12 22 12s-3.6 5.6-10 5.6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.6"/></svg></div>
+          <h3>Ресницы</h3>
+          <p>Оформление и наращивание ресниц с аккуратным, естественным результатом.</p>
+          <a class="more" href="https://wa.me/77086385302" target="_blank" rel="noopener">Уточнить стоимость <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="9.2" y="3" width="5.6" height="4" rx="1"/><path d="M7.8 9h8.4l-.8 10a2.2 2.2 0 0 1-2.2 2h-2.4a2.2 2.2 0 0 1-2.2-2L7.8 9Z"/></svg></div>
+          <h3>Ногтевой сервис</h3>
+          <p>Маникюр, покрытие и уход за ногтями — чистые линии и стойкий результат.</p>
+          <a class="more" href="https://wa.me/77086385302" target="_blank" rel="noopener">Уточнить стоимость <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3c2 3 4 5 4 8a4 4 0 1 1-8 0c0-3 2-5 4-8Z"/><path d="M9 21h6"/></svg></div>
+          <h3>Перманентный макияж</h3>
+          <p>Деликатное оформление, которое держится и экономит время каждое утро.</p>
+          <a class="more" href="https://wa.me/77086385302" target="_blank" rel="noopener">Уточнить стоимость <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Эпиляция</h3>
+          <p>Гладкая кожа и комфортная процедура — с заботой о чувствительности.</p>
+          <a class="more" href="https://wa.me/77086385302" target="_blank" rel="noopener">Уточнить стоимость <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><path d="M8.2 7.4 20 18M8.2 16.6 20 6"/></svg></div>
+          <h3>Парикмахерские услуги</h3>
+          <p>Стрижки и укладки, после которых волосы легко повторить дома.</p>
+          <a class="more" href="https://wa.me/77086385302" target="_blank" rel="noopener">Уточнить стоимость <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+      </div>
+      <p class="price-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Прайс — в WhatsApp: подскажем цену под выбранную услугу и длину.
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="steps">
+        <span class="label">Запись</span>
+        <h2 class="serif">Записаться — за пару минут</h2>
+        <p class="sub">Без звонков и ожидания на линии. Напишите в WhatsApp — подберём удобное время и ответим на вопросы.</p>
+        <div class="steps-row">
+          <div class="step"><span>01</span><h3>Напишите нам</h3><p>Нажмите «Записаться» — откроется чат с готовым сообщением.</p></div>
+          <div class="step"><span>02</span><h3>Подберём время</h3><p>Уточним услугу и предложим свободные окна на удобный день.</p></div>
+          <div class="step"><span>03</span><h3>Приходите в салон</h3><p>Ждём вас по адресу: улица Бейбитшилик, 77. Оплата картой или QR.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="padding-top:0">
+    <div class="wrap about">
+      <div class="about-photo"><img src="assets/salon.jpg" alt="Интерьер салона Line&Lash" loading="lazy"></div>
+      <div>
+        <span class="label">О салоне</span>
+        <h2 class="serif">Спокойное место<br>для вашей красоты</h2>
+        <p>Line&amp;Lash — небольшой салон красоты в районе Сарыарка. Здесь не торопят и не навязывают лишнего: сначала слушаем, что вы хотите, потом подбираем услугу и уход.</p>
+        <p>Работаем каждый день с 10:00 до 20:00. Принимаем оплату наличными, картой и по QR-коду.</p>
+        <ul class="about-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 12 5 5L20 6"/></svg>Брови, ресницы, ногти и перманентный макияж</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 12 5 5L20 6"/></svg>Удобно добираться: улица Бейбитшилик, 77</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 12 5 5L20 6"/></svg>Запись в WhatsApp без предоплаты</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" style="padding-top:0">
+    <div class="wrap">
+      <div class="review-band">
+        <div class="review-left">
+          <div class="review-score">5,0</div>
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p><b>7 отзывов</b> о салоне на 2ГИС. Средняя оценка — 5,0 из 5.</p>
+          </div>
+        </div>
+        <a class="btn btn-ghost" href="https://2gis.kz/astana/firm/70000001118547974" target="_blank" rel="noopener">Смотреть отзывы в 2ГИС</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" style="padding-top:0">
+    <div class="wrap contact">
+      <div class="contact-main">
+        <span class="label" style="color:var(--rose-soft)">Контакты</span>
+        <h2 class="serif">Запишитесь<br>на удобное время</h2>
+        <p>Напишите в WhatsApp — ответим в рабочее время и поможем выбрать услугу.</p>
+        <a class="btn btn-light" href="https://wa.me/77086385302?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20Line%26Lash." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.5-5.9c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.4 0-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3.1a11 11 0 0 0 4.7 5.5c1.5.8 2.6.9 3.4.8.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.1-1.3 0-.1-.2-.2-.4-.3Z"/></svg>
+          Написать в WhatsApp
+        </a>
+        <div class="contact-lines">
+          <a href="tel:+77086385302"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>+7 708 638 53 02</a>
+          <a href="https://2gis.kz/astana/firm/70000001118547974" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>улица Бейбитшилик, 77</a>
+        </div>
+      </div>
+
+      <div class="contact-side">
+        <div>
+          <span class="label">Как добраться</span>
+          <h3>Сарыарка район</h3>
+          <p>улица Бейбитшилик, 77<br>Астана</p>
+          <a class="map-link" href="https://2gis.kz/astana/firm/70000001118547974" target="_blank" rel="noopener">Открыть в 2ГИС <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          <div class="mini-map"><div class="pin"></div><div class="cap">Line&amp;Lash · Бейбитшилик, 77</div></div>
+        </div>
+        <div>
+          <span class="label">Часы работы</span>
+          <h3>Ежедневно 10:00–20:00</h3>
+          <p>Без обеда и выходных. Запись — в WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top">Line<em>&amp;</em>Lash</a>
+    <div class="foot-links">
+      <a href="#services">Услуги</a>
+      <a href="#about">О салоне</a>
+      <a href="#contacts">Контакты</a>
+      <a href="https://2gis.kz/astana/firm/70000001118547974" target="_blank" rel="noopener">2ГИС</a>
+    </div>
+    <small>© 2026 Line&amp;Lash · Астана</small>
+  </div>
+  <div class="wrap"><p class="demo-note">Демонстрационный макет сайта. Фото — из карточки салона на 2ГИС.</p></div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/77086385302?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20Line%26Lash." target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.5-5.9c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.5-.6c.1-.2.1-.4 0-.6l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3.1a11 11 0 0 0 4.7 5.5c1.5.8 2.6.9 3.4.8.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.1-1.3 0-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+
+<script>
+  const header = document.getElementById('top');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 12), {passive:true});
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.style.opacity = 1; e.target.style.transform = 'none'; io.unobserve(e.target); }
+    });
+  }, {threshold: .12});
+  document.querySelectorAll('.card, .step, .about-photo, .review-band').forEach((el) => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
